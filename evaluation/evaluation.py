@@ -560,9 +560,13 @@ def evaluate(gold, predict, db_dir, etype, kmaps, plug_value, keep_distinct, pro
 
     for i, (p, g) in enumerate(zip(plist, glist)):
         if (i + 1) % 10 == 0:
-            print('Evaluating %dth prediction' % (i + 1))
+           print('Evaluating %dth prediction' % (i + 1))
         scores['joint_all']['count'] += 1
-        turn_scores = {"exec": [], "exact": []}
+        turn_scores = {"exec": [], "exact": [], 'exec_idx': [], 'exact_idx': []}
+        data_idx = [int(i[0][:i[0].find(' ')]) for i in p]
+        p = [[i[0][i[0].find(' ')+1:]] for i in p]
+        #print(p)
+        it = 0
         for idx, pg in enumerate(zip(p, g)):
             p, g = pg
             p_str = p[0]
@@ -613,8 +617,10 @@ def evaluate(gold, predict, db_dir, etype, kmaps, plug_value, keep_distinct, pro
                     scores[turn_id]['exec'] += 1
                     scores['all']['exec'] += 1
                     turn_scores['exec'].append(1)
+                    turn_scores['exec_idx'].append(data_idx[it])
                 else:
                     turn_scores['exec'].append(0)
+                    turn_scores['exec_idx'].append(data_idx[it])
 
             if etype in ["all", "match"]:
                 # rebuild sql for value evaluation
@@ -629,11 +635,13 @@ def evaluate(gold, predict, db_dir, etype, kmaps, plug_value, keep_distinct, pro
                 partial_scores = evaluator.partial_scores
                 if exact_score == 0:
                     turn_scores['exact'].append(0)
+                    turn_scores['exact_idx'].append(data_idx[it])
                     print("{} pred: {}".format(hardness, p_str))
                     print("{} gold: {}".format(hardness, g_str))
                     print("")
                 else:
                     turn_scores['exact'].append(1)
+                    turn_scores['exact_idx'].append(data_idx[it])
                 scores[turn_id]['exact'] += exact_score
                 scores[hardness]['exact'] += exact_score
                 scores['all']['exact'] += exact_score
@@ -660,6 +668,7 @@ def evaluate(gold, predict, db_dir, etype, kmaps, plug_value, keep_distinct, pro
                     'exact': exact_score,
                     'partial': partial_scores
                 })
+            it+=1
 
         if all(v == 1 for v in turn_scores["exec"]):
             scores['joint_all']['exec'] += 1
@@ -701,6 +710,8 @@ def evaluate(gold, predict, db_dir, etype, kmaps, plug_value, keep_distinct, pro
                     scores[level]['partial'][type_]['f1'] = \
                         2.0 * scores[level]['partial'][type_]['acc'] * scores[level]['partial'][type_]['rec'] / (
                         scores[level]['partial'][type_]['rec'] + scores[level]['partial'][type_]['acc'])
+    with open("turn_scores.json", "w") as outfile:
+        json.dump(turn_scores, outfile, indent=4)
 
     print_scores(scores, etype, include_turn_acc=include_turn_acc)
 

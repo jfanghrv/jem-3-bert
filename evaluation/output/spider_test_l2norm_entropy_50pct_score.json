@@ -1,0 +1,489 @@
+{
+    "turn 1": {
+        "count": 1,
+        "exact": 1.0,
+        "exec": 1.0
+    },
+    "turn 2": {
+        "count": 1,
+        "exact": 1.0,
+        "exec": 1.0
+    },
+    "turn 3": {
+        "count": 1,
+        "exact": 1.0,
+        "exec": 1.0
+    },
+    "turn 4": {
+        "count": 1,
+        "exact": 0.0,
+        "exec": 0.0
+    },
+    "turn > 4": {
+        "count": 239,
+        "exact": 0.6359832635983264,
+        "exec": 0.6527196652719666
+    },
+    "easy": {
+        "count": 99,
+        "partial": {
+            "select": {
+                "acc": 0.9722222222222222,
+                "rec": 0.7070707070707071,
+                "f1": 0.8187134502923977,
+                "acc_count": 72,
+                "rec_count": 99
+            },
+            "select(no AGG)": {
+                "acc": 0.9861111111111112,
+                "rec": 0.7171717171717171,
+                "f1": 0.8304093567251463,
+                "acc_count": 72,
+                "rec_count": 99
+            },
+            "where": {
+                "acc": 1.0,
+                "rec": 0.2916666666666667,
+                "f1": 0.45161290322580644,
+                "acc_count": 7,
+                "rec_count": 24
+            },
+            "where(no OP)": {
+                "acc": 1.0,
+                "rec": 0.2916666666666667,
+                "f1": 0.45161290322580644,
+                "acc_count": 7,
+                "rec_count": 24
+            },
+            "group(no Having)": {
+                "acc": 1.0,
+                "rec": 0.9090909090909091,
+                "f1": 0.9523809523809523,
+                "acc_count": 10,
+                "rec_count": 11
+            },
+            "group": {
+                "acc": 1.0,
+                "rec": 0.9090909090909091,
+                "f1": 0.9523809523809523,
+                "acc_count": 10,
+                "rec_count": 11
+            },
+            "order": {
+                "acc": 0.75,
+                "rec": 0.7058823529411765,
+                "f1": 0.7272727272727272,
+                "acc_count": 16,
+                "rec_count": 17
+            },
+            "and/or": {
+                "acc": 1.0,
+                "rec": 1.0,
+                "f1": 1.0,
+                "acc_count": 99,
+                "rec_count": 99
+            },
+            "IUEN": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "keywords": {
+                "acc": 0.8787878787878788,
+                "rec": 0.5576923076923077,
+                "f1": 0.6823529411764707,
+                "acc_count": 33,
+                "rec_count": 52
+            }
+        },
+        "exact": 0.6565656565656566,
+        "exec": 0.6666666666666666
+    },
+    "medium": {
+        "count": 105,
+        "partial": {
+            "select": {
+                "acc": 0.9615384615384616,
+                "rec": 0.7142857142857143,
+                "f1": 0.819672131147541,
+                "acc_count": 78,
+                "rec_count": 105
+            },
+            "select(no AGG)": {
+                "acc": 0.9743589743589743,
+                "rec": 0.7238095238095238,
+                "f1": 0.8306010928961748,
+                "acc_count": 78,
+                "rec_count": 105
+            },
+            "where": {
+                "acc": 0.9615384615384616,
+                "rec": 0.6410256410256411,
+                "f1": 0.7692307692307693,
+                "acc_count": 26,
+                "rec_count": 39
+            },
+            "where(no OP)": {
+                "acc": 0.9615384615384616,
+                "rec": 0.6410256410256411,
+                "f1": 0.7692307692307693,
+                "acc_count": 26,
+                "rec_count": 39
+            },
+            "group(no Having)": {
+                "acc": 0.95,
+                "rec": 0.7307692307692307,
+                "f1": 0.8260869565217392,
+                "acc_count": 20,
+                "rec_count": 26
+            },
+            "group": {
+                "acc": 0.95,
+                "rec": 0.7307692307692307,
+                "f1": 0.8260869565217392,
+                "acc_count": 20,
+                "rec_count": 26
+            },
+            "order": {
+                "acc": 0.7777777777777778,
+                "rec": 0.6666666666666666,
+                "f1": 0.717948717948718,
+                "acc_count": 18,
+                "rec_count": 21
+            },
+            "and/or": {
+                "acc": 0.9714285714285714,
+                "rec": 1.0,
+                "f1": 0.9855072463768115,
+                "acc_count": 105,
+                "rec_count": 102
+            },
+            "IUEN": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "keywords": {
+                "acc": 0.9523809523809523,
+                "rec": 0.7228915662650602,
+                "f1": 0.8219178082191781,
+                "acc_count": 63,
+                "rec_count": 83
+            }
+        },
+        "exact": 0.6476190476190476,
+        "exec": 0.6571428571428571
+    },
+    "hard": {
+        "count": 25,
+        "partial": {
+            "select": {
+                "acc": 1.0,
+                "rec": 0.64,
+                "f1": 0.7804878048780487,
+                "acc_count": 16,
+                "rec_count": 25
+            },
+            "select(no AGG)": {
+                "acc": 1.0,
+                "rec": 0.64,
+                "f1": 0.7804878048780487,
+                "acc_count": 16,
+                "rec_count": 25
+            },
+            "where": {
+                "acc": 0.8333333333333334,
+                "rec": 0.625,
+                "f1": 0.7142857142857143,
+                "acc_count": 6,
+                "rec_count": 8
+            },
+            "where(no OP)": {
+                "acc": 0.8333333333333334,
+                "rec": 0.625,
+                "f1": 0.7142857142857143,
+                "acc_count": 6,
+                "rec_count": 8
+            },
+            "group(no Having)": {
+                "acc": 1.0,
+                "rec": 0.7272727272727273,
+                "f1": 0.8421052631578948,
+                "acc_count": 8,
+                "rec_count": 11
+            },
+            "group": {
+                "acc": 1.0,
+                "rec": 0.7272727272727273,
+                "f1": 0.8421052631578948,
+                "acc_count": 8,
+                "rec_count": 11
+            },
+            "order": {
+                "acc": 1.0,
+                "rec": 0.6666666666666666,
+                "f1": 0.8,
+                "acc_count": 8,
+                "rec_count": 12
+            },
+            "and/or": {
+                "acc": 0.96,
+                "rec": 1.0,
+                "f1": 0.9795918367346939,
+                "acc_count": 25,
+                "rec_count": 24
+            },
+            "IUEN": {
+                "acc": 0.75,
+                "rec": 0.42857142857142855,
+                "f1": 0.5454545454545454,
+                "acc_count": 4,
+                "rec_count": 7
+            },
+            "keywords": {
+                "acc": 1.0,
+                "rec": 0.64,
+                "f1": 0.7804878048780487,
+                "acc_count": 16,
+                "rec_count": 25
+            }
+        },
+        "exact": 0.56,
+        "exec": 0.56
+    },
+    "extra": {
+        "count": 14,
+        "partial": {
+            "select": {
+                "acc": 1.0,
+                "rec": 0.8571428571428571,
+                "f1": 0.923076923076923,
+                "acc_count": 12,
+                "rec_count": 14
+            },
+            "select(no AGG)": {
+                "acc": 1.0,
+                "rec": 0.8571428571428571,
+                "f1": 0.923076923076923,
+                "acc_count": 12,
+                "rec_count": 14
+            },
+            "where": {
+                "acc": 0.75,
+                "rec": 0.75,
+                "f1": 0.75,
+                "acc_count": 4,
+                "rec_count": 4
+            },
+            "where(no OP)": {
+                "acc": 0.75,
+                "rec": 0.75,
+                "f1": 0.75,
+                "acc_count": 4,
+                "rec_count": 4
+            },
+            "group(no Having)": {
+                "acc": 0.8,
+                "rec": 0.6666666666666666,
+                "f1": 0.7272727272727272,
+                "acc_count": 10,
+                "rec_count": 12
+            },
+            "group": {
+                "acc": 0.8,
+                "rec": 0.6666666666666666,
+                "f1": 0.7272727272727272,
+                "acc_count": 10,
+                "rec_count": 12
+            },
+            "order": {
+                "acc": 1.0,
+                "rec": 0.8,
+                "f1": 0.888888888888889,
+                "acc_count": 8,
+                "rec_count": 10
+            },
+            "and/or": {
+                "acc": 0.9285714285714286,
+                "rec": 1.0,
+                "f1": 0.962962962962963,
+                "acc_count": 14,
+                "rec_count": 13
+            },
+            "IUEN": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "keywords": {
+                "acc": 1.0,
+                "rec": 0.8571428571428571,
+                "f1": 0.923076923076923,
+                "acc_count": 12,
+                "rec_count": 14
+            }
+        },
+        "exact": 0.5714285714285714,
+        "exec": 0.7142857142857143
+    },
+    "all": {
+        "count": 243,
+        "partial": {
+            "select": {
+                "acc": 0.9719101123595506,
+                "rec": 0.7119341563786008,
+                "f1": 0.8218527315914489,
+                "acc_count": 178,
+                "rec_count": 243
+            },
+            "select(no AGG)": {
+                "acc": 0.9831460674157303,
+                "rec": 0.720164609053498,
+                "f1": 0.8313539192399051,
+                "acc_count": 178,
+                "rec_count": 243
+            },
+            "where": {
+                "acc": 0.9302325581395349,
+                "rec": 0.5333333333333333,
+                "f1": 0.6779661016949152,
+                "acc_count": 43,
+                "rec_count": 75
+            },
+            "where(no OP)": {
+                "acc": 0.9302325581395349,
+                "rec": 0.5333333333333333,
+                "f1": 0.6779661016949152,
+                "acc_count": 43,
+                "rec_count": 75
+            },
+            "group(no Having)": {
+                "acc": 0.9375,
+                "rec": 0.75,
+                "f1": 0.8333333333333334,
+                "acc_count": 48,
+                "rec_count": 60
+            },
+            "group": {
+                "acc": 0.9375,
+                "rec": 0.75,
+                "f1": 0.8333333333333334,
+                "acc_count": 48,
+                "rec_count": 60
+            },
+            "order": {
+                "acc": 0.84,
+                "rec": 0.7,
+                "f1": 0.7636363636363636,
+                "acc_count": 50,
+                "rec_count": 60
+            },
+            "and/or": {
+                "acc": 0.9794238683127572,
+                "rec": 1.0,
+                "f1": 0.9896049896049895,
+                "acc_count": 243,
+                "rec_count": 238
+            },
+            "IUEN": {
+                "acc": 0.75,
+                "rec": 0.42857142857142855,
+                "f1": 0.5454545454545454,
+                "acc_count": 4,
+                "rec_count": 7
+            },
+            "keywords": {
+                "acc": 0.9435483870967742,
+                "rec": 0.6724137931034483,
+                "f1": 0.7852348993288591,
+                "acc_count": 124,
+                "rec_count": 174
+            }
+        },
+        "exact": 0.6378600823045267,
+        "exec": 0.654320987654321
+    },
+    "joint_all": {
+        "count": 1,
+        "partial": {
+            "select": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "select(no AGG)": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "where": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "where(no OP)": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "group(no Having)": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "group": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "order": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "and/or": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "IUEN": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "keywords": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            }
+        },
+        "exact": 0.0,
+        "exec": 0.0
+    }
+}

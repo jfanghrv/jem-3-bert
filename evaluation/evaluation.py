@@ -711,10 +711,10 @@ def evaluate(gold, predict, db_dir, etype, kmaps, plug_value, keep_distinct, pro
                         2.0 * scores[level]['partial'][type_]['acc'] * scores[level]['partial'][type_]['rec'] / (
                         scores[level]['partial'][type_]['rec'] + scores[level]['partial'][type_]['acc'])
     
-    with open("output/"+output+".json", "w") as outfile:
+    with open("output/result/"+output+".json", "w") as outfile:
         json.dump(turn_scores, outfile, indent=4)
 
-    with open("output/"+output+"_score.json", "w") as outfile:
+    with open("output/scores/"+output+"_score.json", "w") as outfile:
         json.dump(scores, outfile, indent=4) 
     print_scores(scores, etype, include_turn_acc=include_turn_acc)
 

@@ -1,0 +1,489 @@
+{
+    "turn 1": {
+        "count": 1,
+        "exact": 0.0,
+        "exec": 0.0
+    },
+    "turn 2": {
+        "count": 1,
+        "exact": 1.0,
+        "exec": 1.0
+    },
+    "turn 3": {
+        "count": 1,
+        "exact": 1.0,
+        "exec": 1.0
+    },
+    "turn 4": {
+        "count": 1,
+        "exact": 1.0,
+        "exec": 1.0
+    },
+    "turn > 4": {
+        "count": 2,
+        "exact": 0.5,
+        "exec": 0.5
+    },
+    "easy": {
+        "count": 3,
+        "partial": {
+            "select": {
+                "acc": 1.0,
+                "rec": 0.6666666666666666,
+                "f1": 0.8,
+                "acc_count": 2,
+                "rec_count": 3
+            },
+            "select(no AGG)": {
+                "acc": 1.0,
+                "rec": 0.6666666666666666,
+                "f1": 0.8,
+                "acc_count": 2,
+                "rec_count": 3
+            },
+            "where": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "where(no OP)": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "group(no Having)": {
+                "acc": 1.0,
+                "rec": 1.0,
+                "f1": 1.0,
+                "acc_count": 2,
+                "rec_count": 2
+            },
+            "group": {
+                "acc": 1.0,
+                "rec": 1.0,
+                "f1": 1.0,
+                "acc_count": 2,
+                "rec_count": 2
+            },
+            "order": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "and/or": {
+                "acc": 1.0,
+                "rec": 1.0,
+                "f1": 1.0,
+                "acc_count": 3,
+                "rec_count": 3
+            },
+            "IUEN": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "keywords": {
+                "acc": 1.0,
+                "rec": 1.0,
+                "f1": 1.0,
+                "acc_count": 2,
+                "rec_count": 2
+            }
+        },
+        "exact": 0.6666666666666666,
+        "exec": 0.6666666666666666
+    },
+    "medium": {
+        "count": 1,
+        "partial": {
+            "select": {
+                "acc": 1.0,
+                "rec": 1.0,
+                "f1": 1.0,
+                "acc_count": 1,
+                "rec_count": 1
+            },
+            "select(no AGG)": {
+                "acc": 1.0,
+                "rec": 1.0,
+                "f1": 1.0,
+                "acc_count": 1,
+                "rec_count": 1
+            },
+            "where": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "where(no OP)": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "group(no Having)": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "group": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "order": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "and/or": {
+                "acc": 1.0,
+                "rec": 1.0,
+                "f1": 1.0,
+                "acc_count": 1,
+                "rec_count": 1
+            },
+            "IUEN": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "keywords": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            }
+        },
+        "exact": 1.0,
+        "exec": 1.0
+    },
+    "hard": {
+        "count": 0,
+        "partial": {
+            "select": {
+                "acc": 0.0,
+                "rec": 0.0,
+                "f1": 0.0,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "select(no AGG)": {
+                "acc": 0.0,
+                "rec": 0.0,
+                "f1": 0.0,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "where": {
+                "acc": 0.0,
+                "rec": 0.0,
+                "f1": 0.0,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "where(no OP)": {
+                "acc": 0.0,
+                "rec": 0.0,
+                "f1": 0.0,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "group(no Having)": {
+                "acc": 0.0,
+                "rec": 0.0,
+                "f1": 0.0,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "group": {
+                "acc": 0.0,
+                "rec": 0.0,
+                "f1": 0.0,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "order": {
+                "acc": 0.0,
+                "rec": 0.0,
+                "f1": 0.0,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "and/or": {
+                "acc": 0.0,
+                "rec": 0.0,
+                "f1": 0.0,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "IUEN": {
+                "acc": 0.0,
+                "rec": 0.0,
+                "f1": 0.0,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "keywords": {
+                "acc": 0.0,
+                "rec": 0.0,
+                "f1": 0.0,
+                "acc_count": 0,
+                "rec_count": 0
+            }
+        },
+        "exact": 0.0,
+        "exec": 0
+    },
+    "extra": {
+        "count": 2,
+        "partial": {
+            "select": {
+                "acc": 1.0,
+                "rec": 1.0,
+                "f1": 1.0,
+                "acc_count": 2,
+                "rec_count": 2
+            },
+            "select(no AGG)": {
+                "acc": 1.0,
+                "rec": 1.0,
+                "f1": 1.0,
+                "acc_count": 2,
+                "rec_count": 2
+            },
+            "where": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "where(no OP)": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "group(no Having)": {
+                "acc": 1.0,
+                "rec": 1.0,
+                "f1": 1.0,
+                "acc_count": 2,
+                "rec_count": 2
+            },
+            "group": {
+                "acc": 1.0,
+                "rec": 1.0,
+                "f1": 1.0,
+                "acc_count": 2,
+                "rec_count": 2
+            },
+            "order": {
+                "acc": 1.0,
+                "rec": 1.0,
+                "f1": 1.0,
+                "acc_count": 2,
+                "rec_count": 2
+            },
+            "and/or": {
+                "acc": 1.0,
+                "rec": 1.0,
+                "f1": 1.0,
+                "acc_count": 2,
+                "rec_count": 2
+            },
+            "IUEN": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "keywords": {
+                "acc": 1.0,
+                "rec": 1.0,
+                "f1": 1.0,
+                "acc_count": 2,
+                "rec_count": 2
+            }
+        },
+        "exact": 0.5,
+        "exec": 0.5
+    },
+    "all": {
+        "count": 6,
+        "partial": {
+            "select": {
+                "acc": 1.0,
+                "rec": 0.8333333333333334,
+                "f1": 0.9090909090909091,
+                "acc_count": 5,
+                "rec_count": 6
+            },
+            "select(no AGG)": {
+                "acc": 1.0,
+                "rec": 0.8333333333333334,
+                "f1": 0.9090909090909091,
+                "acc_count": 5,
+                "rec_count": 6
+            },
+            "where": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "where(no OP)": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "group(no Having)": {
+                "acc": 1.0,
+                "rec": 1.0,
+                "f1": 1.0,
+                "acc_count": 4,
+                "rec_count": 4
+            },
+            "group": {
+                "acc": 1.0,
+                "rec": 1.0,
+                "f1": 1.0,
+                "acc_count": 4,
+                "rec_count": 4
+            },
+            "order": {
+                "acc": 1.0,
+                "rec": 1.0,
+                "f1": 1.0,
+                "acc_count": 2,
+                "rec_count": 2
+            },
+            "and/or": {
+                "acc": 1.0,
+                "rec": 1.0,
+                "f1": 1.0,
+                "acc_count": 6,
+                "rec_count": 6
+            },
+            "IUEN": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "keywords": {
+                "acc": 1.0,
+                "rec": 1.0,
+                "f1": 1.0,
+                "acc_count": 4,
+                "rec_count": 4
+            }
+        },
+        "exact": 0.6666666666666666,
+        "exec": 0.6666666666666666
+    },
+    "joint_all": {
+        "count": 1,
+        "partial": {
+            "select": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "select(no AGG)": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "where": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "where(no OP)": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "group(no Having)": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "group": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "order": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "and/or": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "IUEN": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            },
+            "keywords": {
+                "acc": 0,
+                "rec": 0,
+                "f1": 1,
+                "acc_count": 0,
+                "rec_count": 0
+            }
+        },
+        "exact": 0.0,
+        "exec": 0.0
+    }
+}

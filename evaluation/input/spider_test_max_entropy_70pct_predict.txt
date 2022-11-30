@@ -1,3 +1,5 @@
+0 select count(*) from singer
+1 select count(*) from singer
 2 select name, country, age from singer order by age desc
 3 select name, country, age from singer order by age desc
 4 select avg(age), min(age), max(age) from singer where country = "France"
@@ -15,12 +17,15 @@
 18 select name, capacity from stadium order by average desc limit 1
 20 select count(*) from concert where year = 2014 or year = 2015
 21 select count(*) from concert where year = 2014 or year = 2015
+23 select t1.location, count(*) from stadium as t1 join concert as t2 on t1.stadium_id = t2.stadium_id group by t2.stadium_id
 25 select t2.name, t2.capacity from concert as t1 join stadium as t2 on t1.stadium_id = t2.stadium_id where t1.year > 2013 group by t1.stadium_id order by count(*) desc limit 1
 27 select year from concert group by year order by count(*) desc limit 1
+31 select name from stadium except select t2.name from concert as t1 join stadium as t2 on t1.stadium_id = t2.stadium_id where t1.year = 2014
 37 select t2.name from performance as t1 join singer as t2 on t1.song_id = t2.song_id where t1.year = 2014
 38 select t2.name from performance as t1 join singer as t2 on t1.song_id = t2.song_id where t1.year = 2014
 40 select name, country from singer where song_name like '%hey%'
 41 select t1.name, t1.location from stadium as t1 join concert as t2 on t1.stadium_id = t2.stadium_id where t2.year = 2014 intersect select t1.name, t1.location from stadium as t1 join concert as t2 on t1.stadium_id = t2.stadium_id where t2.year = 2015
+43 select count(*) from stadium as t1 join concert as t2 on t1.stadium_id = t2.stadium_id where t1.capacity = (select max(capacity) from stadium)
 44 select count(*) from stadium as t1 join concert as t2 on t1.stadium_id = t2.stadium_id where t1.capacity = (select max(capacity) from stadium)
 45 select count(*) from pets where weight > 10
 49 select max(weight), pettype from pets group by pettype
@@ -29,6 +34,8 @@
 55 select count(distinct pettype) from pets
 56 select count(distinct pettype) from pets
 59 select fname from student where stuid in (select stuid from has pets) intersect select stuid from has pets
+60 select fname from student where stuid in (select stuid from has pets) intersect select stuid from has pets
+62 select major, age from student where stuid not in (select stuid from has pets)
 64 select stuid from student except select stuid from has pet
 66 select fname from student where stuid in (select stuid from has pets) except select stuid from has pets
 68 select pettype, weight from pets order by pet_age asc limit 1
@@ -38,10 +45,12 @@
 72 select pettype, avg(pet_age), max(pet_age) from pets group by pettype
 73 select pettype, avg(weight) from pets group by pettype
 74 select avg(weight), pettype from pets group by pettype
+75 select distinct t1.fname, t1.age from student as t1 join has pet as t2 on t1.stuid = t2.stuid
 77 select t2.petid from has as t1 join pets as t2 on t1.petid = t2.petid join student as t3 on t1.stuid = t3.stuid where t3.lname = 'Smith'
 78 select t2.petid from has as t1 join pets as t2 on t1.petid = t2.petid join student as t3 on t1.stuid = t3.stuid where t3.lname = 'Smith'
 81 select t1.fname, t1.sex from student as t1 join has pet as t2 on t1.stuid = t2.stuid group by t1.stuid having count(*) > 1
 82 select t1.fname, t1.sex from student as t1 join has pet as t2 on t1.stuid = t2.stuid group by t1.stuid having count(*) > 1
+83 select lname from student where stuid in (select stuid from has pets)
 84 select lname from student where stuid in (select stuid from has pets) and age = 3
 87 select count(*) from continents
 88 select count(*) from continents
@@ -49,6 +58,7 @@
 92 select count(*) from countries
 103 select distinct model from model list where year > 1980
 104 select distinct model from model list where year > 1980
+115 select count(*) from model list where country = 'USA'
 117 select avg(mpg) from cars where cylinders = 4
 118 select avg(mpg) from cars where cylinders = 4
 120 select min(weight) from cars where cylinders = 8 and year = 1974
@@ -59,6 +69,8 @@
 127 select avg(weight), year from cars group by year
 128 select avg(weight), year from cars group by year
 129 select t1.countryname from countries as t1 join car manufacturers as t2 on t1.countryid = t2.countryid group by t1.countryname having count(*) >= 3
+130 select countryname from countries where continent = "Europe" group by countryname having count(*) >= 3
+135 select avg(horse) from cars where year < 1980
 136 select avg(horse) from cars where year < 1980
 137 select avg(t1.edispl) from cars as t1 join model as t2 on t1.modelid = t2.modelid where t2.model = "voluvo"
 142 select model from model group by model order by count(*) desc limit 1
@@ -70,25 +82,31 @@
 154 select distinct year from cars where weight < 4000 intersect select distinct year from cars where weight > 3000
 163 select count(*) from cars where cylinders > 6
 164 select count(*) from cars where cylinders > 6
+165 select model from cars where cylinders = 4 order by horsepower desc limit 4
 169 select max(mpg) from cars where cylinders = 8 or year < 1980
 170 select max(mpg) from cars where cylinders = 8 or year < 1980
+173 select countryname from countries except select t1.countryname from countries as t1 join car manufacturers as t2 on t1.countryid = t2.countryid
 174 select countryname from countries except select t1.countryname from countries as t1 join car manufacturers as t2 on t1.countryid = t2.countryid
 183 select airline, abbreviation from airlines where country = "USA"
+184 select airline, abbreviation from airlines where country = "USA"
 189 select count(*) from airports
 190 select count(*) from airports
 192 select count(*) from flights
+193 select airline from airlines where abbreviation like '%ual%'
 195 select count(*) from airlines where country = "USA"
 196 select count(*) from airlines where country = "USA"
 197 select city, country from airports where airportcode = "Alton"
 199 select airportname from airports where airportcode = 'AKO'
 200 select airportname from airports where airportcode = 'AKO'
 201 select airportname from airports where city = 'Aberdeen'
+202 select airportname from airports where country = "Aberdeen"
 215 select count(*) from airlines as t1 join routes as t2 on t1.uid = t2.airline where t1.country = 'ASY'
 216 select count(*) from airlines as t1 join routes as t2 on t1.uid = t2.airline where t1.country = "ASY"
 217 select count(*) from airlines as t1 join routes as t2 on t1.uid = t2.airline where t1.country = 'AHD'
 219 select count(*) from airlines as t1 join routes as t2 on t1.uid = t2.airline where t1.country = 'Aberdeen'
 220 select count(*) from airlines as t1 join routes as t2 on t1.uid = t2.airline where t1.country = "Aberdeen"
 222 select city from airports group by city order by count(*) desc limit 1
+257 select airportname from airports where airportcode not in (select airport from flights)
 261 select name from employee order by age asc
 262 select name from employee order by age asc
 263 select city, count(*) from employee group by city
@@ -128,18 +146,22 @@
 310 select template_id, count(*) from documents group by template_id
 313 select template_id from documents group by template_id having count(*) > 1
 314 select template_id from documents group by template_id having count(*) > 1
+316 select template_id from templates except select template_id from documents
 321 select distinct template_type_code from templates
 322 select distinct template_type_code from templates
 323 select template_id from templates where template_type_code = "PP" or template_type_code = "PPT"
+324 select template_id from templates where template_type_code = "PP" or template_type_code = "PPT"
 326 select count(*) from templates where template_type_code = "CV"
 329 select template_type_code, count(*) from templates group by template_type_code
 330 select template_type_code, count(*) from templates group by template_type_code
 331 select template_type_code from templates group by template_type_code order by count(*) desc limit 1
 333 select template_type_code from templates group by template_type_code having count(*) < 3
 334 select template_type_code from templates group by template_type_code having count(*) < 3
+336 select version_number, template_type_code from templates order by version_number asc limit 1
 347 select template_type_code, template_type_description from reference template types
 348 select template_type_code, template_type_description from reference template types
 357 select count(*) from paragraphs
+358 select count(*) from paragraphs
 359 select count(*) from paragraphs as t1 join documents as t2 on t1.document_id = t2.document_id where t2.document_name = "Summer Show"
 360 select count(*) from paragraphs as t1 join documents as t2 on t1.document_id = t2.document_id where t2.document_name = "Summer Show"
 361 select other_details from paragraphs where paragraph_text like '%korea%'
@@ -158,6 +180,7 @@
 376 select document_id from paragraphs group by document_id order by count(*) asc limit 1
 377 select document_id from paragraphs group by document_id having count(*) between 1 and 2
 378 select document_id from paragraphs group by document_id having count(*) between 1 and 2
+379 select document_id from paragraphs where paragraph_text like '%brazil%' intersect select document_id from paragraphs where paragraph_text like '%ireland%'
 382 select count(*) from teacher
 383 select name from teacher order by age asc
 384 select name from teacher order by age asc
@@ -165,11 +188,13 @@
 394 select hometown, count(*) from teacher group by hometown
 398 select hometown from teacher group by hometown having count(*) >= 2
 399 select t2.name, t3.course_id from course arrange as t1 join teacher as t2 on t1.teacher_id = t2.teacher_id join course as t3 on t1.course_id = t3.course_id
+402 select t2.name, t3.course_id from course as t1 join teacher as t2 on t1.teacher_id = t2.teacher_id join course as t3 on t1.course_id = t3.course_id order by t2.name
 411 select count(*) from customer where age < 30
 413 select avg(age) from customer where level_of_membership!= 4
 414 select name, level_of_membership from customer where level_of_membership > 4 order by age
 416 select avg(num_of_staff) from museum where open_year < 2009
 418 select name from museum where num_of_staff > (select min(num_of_staff) from museum where open_year > 2010)
+423 select t1.name, t1.age from customer as t1 join visit as t2 on t1.id = t2.customer_id group by t2.customer_id order by sum(t2.num_of_ticket) desc limit 1
 424 select avg(num_of_ticket), max(num_of_ticket) from visit
 425 select sum(total_spent) from visit as t1 join customer as t2 on t1.customer_id = t2.id where t2.level_of_membership = 1
 428 select count(*) from museum where open_year > 2013 or open_year < 2008
@@ -185,6 +210,7 @@
 442 select count(distinct country_code) from players
 443 select count(distinct loser_name) from players
 444 select count(distinct loser_name) from matches
+446 select tourney_name from matches group by tourney_name having count(*) > 10
 449 select count(*) from matches where year = 2013 or year = 2016
 450 select count(*) from matches where year = 2013 or year = 2016
 453 select first_name, country_code from players order by birth_date desc limit 1
@@ -194,6 +220,7 @@
 461 select year from matches group by year order by count(*) desc limit 1
 462 select year from matches group by year order by count(*) desc limit 1
 468 select t1.winner_name, t1.loser_name from players as t1 join matches as t2 on t1.player_id = t2.winner_id order by t2.year desc limit 1
+469 select t1.player_id, t2.first_name, avg(t1.ranking_date) from rankings as t1 join players as t2 on t1.player_id = t2.player_id group by t2.player_id
 470 select t1.first_name, avg(t2.ranking_points) from players as t1 join rankings as t2 on t1.player_id = t2.player_id group by t2.player_id
 472 select t1.first_name, sum(t2.ranking_points) from players as t1 join rankings as t2 on t1.player_id = t2.player_id group by t1.player_id
 473 select country_code, count(*) from players group by country_code
@@ -225,7 +252,9 @@
 528 select section_name from sections order by section_name
 529 select t1.semester_name, t1.semester_id from semesters as t1 join student_enrolment as t2 on t1.semester_id = t2.semester_id group by t1.semester_id order by count(*) desc limit 1
 531 select department_description from departments where department_name like "%computer%"
+533 select t1.first_name, t1.middle_name, t1.last_name, t1.student_enrolment_id from students as t1 join student_enrolment as t2 on t1.student_enrolment_id = t2.student_enrolment_id group by t1.student_enrolment_id having count(*) = 2
 534 select t1.first_name, t1.middle_name, t1.student_id from students as t1 join student_enrolment as t2 on t1.student_enrolment_id = t2.student_enrolment_id group by t1.student_id having count(*) = 2
+538 select t1.degree_summary_name from degrees as t1 join student_enrolment as t2 on t1.degree_program_id = t2.degree_program_id group by t1.degree_summary_name order by count(*) desc limit 1
 539 select t1.student_enrolment_id, t2.degree_program_id from student enrolment as t1 join courses as t2 on t1.course_id = t2.course_id group by t1.student_enrolment_id order by count(*) desc limit 1
 543 select semester_name from semesters where semester_id not in (select semester_id from student_enrolment)
 544 select semester_name from semesters where semester_id not in (select semester_id from student_enrolment)
@@ -243,15 +272,19 @@
 581 select section_name from sections
 582 select section_description from sections where section_name = "h"
 585 select title from cartoon order by title
+588 select title from cartoon where directed_by = "Ben Jones"
 592 select title, directed_by from cartoon order by air_date
 593 select title from cartoon where directed_by = "Ben Jones" or directed_by = "Brandon Vietti"
 594 select title from cartoon where directed_by = "Ben Jones" or directed_by = "Ben Vietti"
 595 select country, count(*) from tv channel group by country order by count(*) desc limit 1
 596 select country, count(*) from tv channel group by country order by count(*) desc limit 1
+600 select content from tvseries where series_name = "Sky Radio"
 601 select package_option from tv channel where serial_name = "Sky Radio"
 604 select count(*) from tv channel where language = "english"
 605 select language, count(*) from tv channel group by language order by count(*) asc limit 1
 606 select language, count(*) from tv channel group by language order by count(*) asc limit 1
+607 select language, count(*) from tv channel group by language
+609 select t2.series_name from cartoon as t1 join tv channel as t2 on t1.id = t2.channel where t1.title = "The Rise of the Blue Beetle"
 618 select max(share), min(share) from tv series
 627 select directed_by, count(*) from cartoon group by directed_by
 629 select production_code, channel from cartoon order by original_air_date desc limit 1
@@ -260,6 +293,7 @@
 638 select t2.series_name, t2.country from cartoon as t1 join tv channel as t2 on t1.id = t2.channel where t1.directed_by = "Ben Jones" intersect select t2.series_name, t2.country from cartoon as t1 join tv channel as t2 on t1.id = t2.channel where t1.directed_by = "Michael Chang"
 639 select pixel_aspect_ratio_par, country from tv channel where language!= 'English'
 640 select pixel_aspect_ratio_par, country from tv channel where language!= 'English'
+645 select package_option from tv channel except select t1.package_option from tv channel as t1 join cartoon as t2 on t1.id = t2.channel where t2.directed_by = "Ben Jones"
 649 select earnings from poker player order by earnings desc
 650 select earnings from poker player order by earnings desc
 651 select final_table_made, best_finish from poker player
@@ -294,7 +328,14 @@
 732 select count(distinct language) from countrylanguage
 734 select count(distinct governmentform) from country
 735 select count(distinct governmentform) from country
+740 select t1.name from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode group by t2.countrycode order by count(*) desc limit 1
+741 select t1.name from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode group by t1.name order by count(*) desc limit 1
 743 select continent from country group by continent order by count(*) desc limit 1
+744 select count(*) from country where language = "English" intersect select count(*) from country where language = "Dutch"
+748 select t1.name from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode where t2.language = 'English' intersect select t1.name from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode where t2.language = 'French'
+749 select t1.name from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode where t2.language = 'English' intersect select t1.name from country as t1 join countrylanguage as t2 on t1.code = t2.countrycode where t2.language = 'French'
+751 select count(*) from country where language = "Chinese"
+762 select name, population, lifeexpectancy from country order by area desc limit 1
 764 select avg(lifeexpectancy) from country where language not in (select countrycode from countrylanguage)
 765 select avg(lifeexpectancy) from country where language not in (select countrycode from countrylanguage)
 766 select sum(population) from country where language!= 'English'
@@ -305,6 +346,7 @@
 795 select count(*), district from city where population > (select avg(population) from city) group by district
 797 select sum(population), governmentform from country group by governmentform having avg(lifeexpectancy) > 72
 801 select name, surfacearea from country order by population desc limit 5
+802 select name from country order by population desc limit 3
 803 select name from country order by population desc limit 3
 805 select name from country order by population asc limit 3
 808 select name from country where continent = "Europe" and population = 80000
@@ -353,7 +395,9 @@
 881 select grade from high schooler group by grade having count(*) >= 4
 882 select student_id, count(*) from friend group by student_id
 883 select count(*) from friend
+885 select t1.name, count(*) from high schooler as t1 join friend as t2 on t1.id = t2.friend_id group by t1.id
 886 select t1.name from high schooler as t1 join friend as t2 on t1.id = t2.friend_id group by t2.friend_id order by count(*) desc limit 1
+887 select t1.name from high schooler as t1 join friend as t2 on t1.id = t2.friend_id group by t2.friend_id order by count(*) desc limit 1
 889 select t1.name from high schooler as t1 join friend as t2 on t1.id = t2.friend_id group by t2.friend_id having count(*) >= 3
 894 select student_id from student except select student_id from friend
 895 select student_id from high school except select student_id from friend
@@ -363,6 +407,7 @@
 902 select count(*), student_id from likes group by student_id
 903 select student_id, count(*) from likes group by student_id
 904 select t1.name, count(*) from high schooler as t1 join likes as t2 on t1.id = t2.like_id group by t2.name
+905 select t1.name, count(*) from high schooler as t1 join likes as t2 on t1.id = t2.like_id group by t2.like_id
 906 select t1.name from high schooler as t1 join likes as t2 on t1.id = t2.like_id group by t2.name order by count(*) desc limit 1
 911 select t1.name from high schooler as t1 join friend as t2 on t1.id = t2.friend_id group by t1.id having count(*) >= 2
 912 select count(*) from Kyle
@@ -379,6 +424,7 @@
 944 select t1.first_name, t1.last_name from professionals as t1 join treatments as t2 on t1.professional_id = t2.professional_id where t2.cost_of_treatment < (select avg(cost_of_treatment) from treatments)
 945 select t1.first_name, t1.last_name from professionals as t1 join treatments as t2 on t1.professional_id = t2.professional_id where t2.cost_of_treatment < (select avg(cost_of_treatment) from treatments)
 946 select t1.date_of_treatment, t2.first_name from treatments as t1 join professionals as t2 on t1.professional_id = t2.professional_id
+948 select t1.cost_of_treatment, t2.treatment_type_description from treatments as t1 join treatment types as t2 on t1.treatment_type_code = t2.treatment_type_code
 950 select t1.first_name, t1.last_name, t2.size_code from owners as t1 join dogs as t2 on t1.owner_id = t2.owner_id
 951 select t1.first_name, t1.last_name, t2.size_code from owners as t1 join dogs as t2 on t1.owner_id = t2.owner_id
 952 select t1.first_name, t2.name from owners as t1 join dogs as t2 on t1.owner_id = t2.owner_id
@@ -419,6 +465,8 @@
 1012 select citizenship, count(*) from singer group by citizenship
 1016 select citizenship, max(net_worth_millions) from singer group by citizenship
 1017 select citizenship, max(net_worth_millions) from singer group by citizenship
+1019 select t2.title, t3.name from song as t1 join singer as t2 on t1.song_id = t2.song_id join song as t3 on t1.song_id = t3.song_id
 1020 select distinct t1.name from singer as t1 join song as t2 on t1.song_id = t2.song_id where t2.sales > 300000
 1021 select distinct t1.name from singer as t1 join song as t2 on t1.song_id = t2.song_id where t2.sales > 300000
+1031 select t1.feature_type_name from reference feature types as t1 join other available features as t2 on t1.feature_type_code = t2.feature_type_code where t2.feature_name = "AirCon"
 1033 select property_name from properties where room_count > 1 or room_count = 2

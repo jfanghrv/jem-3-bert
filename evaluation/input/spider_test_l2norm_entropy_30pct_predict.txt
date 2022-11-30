@@ -1,0 +1,37 @@
+201 select airportname from airports where city = 'Aberdeen'
+222 select city from airports group by city order by count(*) desc limit 1
+262 select name from employee order by age asc
+273 select name, location, district from shop order by number_products desc
+299 select document_id, document_name, document_description from documents
+300 select document_id, document_name, document_description from documents
+305 select count(distinct template_id) from documents
+314 select template_id from documents group by template_id having count(*) > 1
+321 select distinct template_type_code from templates
+322 select distinct template_type_code from templates
+331 select template_type_code from templates group by template_type_code order by count(*) desc limit 1
+333 select template_type_code from templates group by template_type_code having count(*) < 3
+334 select template_type_code from templates group by template_type_code having count(*) < 3
+371 select document_id from paragraphs group by document_id having count(*) >= 2
+372 select document_id from paragraphs group by document_id having count(*) >= 2
+374 select t1.document_id, t1.document_name from documents as t1 join paragraphs as t2 on t1.document_id = t2.document_id group by t1.document_id order by count(*) desc limit 1
+383 select name from teacher order by age asc
+418 select name from museum where num_of_staff > (select min(num_of_staff) from museum where open_year > 2010)
+429 select count(*) from players
+431 select count(*) from matches
+432 select count(*) from matches
+442 select count(distinct country_code) from players
+461 select year from matches group by year order by count(*) desc limit 1
+462 select year from matches group by year order by count(*) desc limit 1
+474 select country_code, count(*) from players group by country_code
+481 select count(*), year from matches group by year
+675 select nationality from people group by nationality order by count(*) desc limit 1
+689 select vote_id, phone_number, state from votes
+690 select max(area_code), min(area_code) from area code
+693 select distinct state, created from votes
+785 select name from city where countrycode not in (select countrycode from countrylanguage)
+794 select count(*), district from city where population > (select avg(population) from city) group by district
+795 select count(*), district from city where population > (select avg(population) from city) group by district
+862 select count(*) from high schooler
+875 select count(*) from high schooler where grade = 9 or grade = 10
+894 select student_id from student except select student_id from friend
+899 select student_id from friend intersect select student_id from likes

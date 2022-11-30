@@ -1,0 +1,6 @@
+222 select city from airports group by city order by count(*) desc limit 1
+300 select document_id, document_name, document_description from documents
+371 select document_id from paragraphs group by document_id having count(*) >= 2
+372 select document_id from paragraphs group by document_id having count(*) >= 2
+374 select t1.document_id, t1.document_name from documents as t1 join paragraphs as t2 on t1.document_id = t2.document_id group by t1.document_id order by count(*) desc limit 1
+862 select count(*) from high schooler
